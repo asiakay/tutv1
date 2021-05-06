@@ -19,7 +19,7 @@ import * as backend from './build/index.main.mjs'; // imports backend to be comp
       console.log(`${Who} played ${HAND[hand]}`);
       return hand;
     },
-    seeOutcome: (outcome) => {
+    seeOutcome: (outcome) => { // defines the seeOutcome method
       console.log(`${Who} saw outcome ${OUTCOME[outcome]}`);
     },
   });
