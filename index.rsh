@@ -3,6 +3,12 @@ const Player =  // participant interact interface shared between two players
     {
         getHand: Fun([], UInt), // method 1 returns a number
         seeOutcome: Fun([UInt], Null) }; // method 2 receives a number
+const Alice =  // defining Alice's interface as Player interface 
+      { ...Player,
+        wager: UInt }; // plus integer value called wager
+const Bob = // // defining Bob's interface as Player interface 
+      { ... Player,
+        acceptWager: Fun([UInt], Null) }; // plus integer value called acceptWager
 
 export const main =
   Reach.App(
