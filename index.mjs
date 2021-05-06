@@ -11,6 +11,19 @@ import * as backend from './build/index.main.mjs'; // imports backend to be comp
   const ctcAlice = accAlice.deploy(backend); //  Alice deploys the application
   const ctcBob = accBob.attach(backend, ctcAlice.getInfo()); // Bob attaches to it
 
+  const HAND = ['Rock', 'Paper', 'Scissors']; // array to hold the meaning of the hands
+  const OUTCOME = ['Bob wins', 'Draw', 'Alice wins']; // arrays to hold the outcomes
+  const Player = (Who) => ({ // constructor for the Player implementation
+    getHand: () => {
+      const hand = Math.floor(Math.random() * 3);
+      console.log(`${Who} played ${HAND[hand]}`);
+      return hand;
+    },
+    seeOutcome: (outcome) => {
+      console.log(`${Who} saw outcome ${OUTCOME[outcome]}`);
+    },
+  });
+
   await Promise.all([ // waits for the backends to complete
     backend.Alice(
       ctcAlice,
