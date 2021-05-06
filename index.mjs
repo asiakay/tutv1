@@ -27,11 +27,11 @@ import * as backend from './build/index.main.mjs'; // imports backend to be comp
   await Promise.all([ // waits for the backends to complete
     backend.Alice(
       ctcAlice,
-      {},
-    ), // initializes Alice’s backend
+      Player('Alice'),
+    ), // initializes & Instantiates Alice’s backend
     backend.Bob(
       ctcBob,
-      {},
-    ), // initializes Bob’s backend
+      Player('Bob'),
+    ), // initializes & Instantiates Bob’s backend
   ]);
 })(); // <-- Don't forget these! They call this asynchronous function that we’ve defined
